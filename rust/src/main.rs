@@ -57,7 +57,13 @@ async fn update_todo(
    item:web::Json<UpdateTodoItem>,
    data:web::Data<AppState>)->impl Responder{
 
+let mut todos=data.todo_list.lock().unwrap();
+if let Some(todo)=todos.iter_mut().find(|toto|todo.id==*path){
+if let Some(title)=&item.title{
+    todo.title==title.clone();
+}
 
+}
 
 
 
