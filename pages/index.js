@@ -106,6 +106,17 @@ const index = () => {
         : format(date, "yyyy-MM-dd HH:mm:ss");
     } catch (error) {}
   };
+
+  const formatDate = (todoTorender) => {
+    return todosTorender.map((todo, index) => (
+      <li key={index} className="li">
+        <label htmlFor="" className="form-check-label"></label>
+
+        <span>{`${todo.title} ${fromatDate(todo.created_at)}`}</span>
+      </li>
+    ));
+  };
+
   return (
     <div className="main-body">
       <div className="todo-app">
